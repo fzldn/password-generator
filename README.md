@@ -4,4 +4,4 @@ Simple password generator built using [AlpineJS](https://alpinejs.dev/), [Tailwi
 
 Demo: [https://fzldn.github.io/password-generator/](https://fzldn.github.io/password-generator/)
 
-![screenshot](https://raw.githubusercontent.com/fzldn/password-generator/main/assets/images/screenshot.png)
+<p align="center"><img src="https://raw.githubusercontent.com/fzldn/password-generator/main/assets/images/screenshot.png"></p>
