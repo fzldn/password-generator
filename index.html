@@ -11,49 +11,61 @@
     <script defer src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"></script>
 </head>
 
-<body>
+<body class="bg-white dark:bg-gray-900 dark:text-white">
     <div class="min-h-screen flex flex-col justify-center items-center" x-data="passwordGenerator">
         <h1 class="font-bold text-4xl mb-8">Password Generator</h1>
-        <div class="w-full sm:w-auto relative text-3xl sm:text-6xl break-all font-mono font-semibold text-center bg-gray-100 border border-gray-200 py-4 px-6 sm:px-8 rounded-none sm:rounded-lg mb-8">
+        <div class="w-full sm:w-auto relative text-3xl sm:text-6xl break-all font-mono font-semibold text-center bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 mx-0 sm:mx-8 py-4 px-6 sm:px-8 rounded-none sm:rounded-lg mb-8">
             <span x-text="password || '&nbsp;'" x-ref="password"></span>
         </div>
-        <div class="w-full px-6 sm:w-1/4 flex flex-col gap-4 mb-6">
+        <div class="w-full px-6 sm:w-1/3 flex flex-col gap-4 mb-8">
             <div class="flex gap-4 items-center">
-                <label for="password-length" class="flex-1 font-semibold">Password Length</label>
-                <input type="number" min="8" max="128" id="password-length" class="flex-1 p-2 border rounded" x-model="length">
+                <label for="password-length" class="w-36 font-semibold">Password Length</label>
+                <input type="number" min="1" id="password-length" class="flex-1 p-2 border rounded dark:bg-gray-700 dark:border-gray-600" x-model="length">
             </div>
             <div class="flex gap-4 items-center">
-                <label for="lowercase" class="flex-1 font-semibold">Lowercase</label>
-                <div class="flex-1">
+                <label for="lowercase" class="w-36 font-semibold">Lowercase</label>
+                <div class="flex-1 flex gap-2 items-center" :title="lowercase">
                     <input type="checkbox" id="lowercase" x-model="types.lowercase">
+                    <div class="flex-1 relative h-6">
+                        <label for="lowercase" class="absolute inset-0 truncate" x-text="lowercase"></label>
+                    </div>
                 </div>
             </div>
             <div class="flex gap-4 items-center">
-                <label for="uppercase" class="flex-1 font-semibold">Uppercase</label>
-                <div class="flex-1">
+                <label for="uppercase" class="w-36 font-semibold">Uppercase</label>
+                <div class="flex-1 flex gap-2 items-center" :title="uppercase">
                     <input type="checkbox" id="uppercase" x-model="types.uppercase">
+                    <div class="flex-1 relative h-6">
+                        <label for="uppercase" class="absolute inset-0 truncate" x-text="uppercase"></label>
+                    </div>
                 </div>
             </div>
             <div class="flex gap-4 items-center">
-                <label for="numeric" class="flex-1 font-semibold">Numeric</label>
-                <div class="flex-1">
+                <label for="numeric" class="w-36 font-semibold">Numeric</label>
+                <div class="flex-1 flex gap-2 items-center" :title="numeric">
                     <input type="checkbox" id="numeric" x-model="types.numeric">
+                    <div class="flex-1 relative h-6">
+                        <label for="numeric" class="absolute inset-0 truncate" x-text="numeric"></label>
+                    </div>
                 </div>
             </div>
             <div class="flex gap-4 items-center">
-                <label for="symbol" class="flex-1 font-semibold">Symbol</label>
-                <div class="flex-1">
+                <label for="symbol" class="w-36 font-semibold">Symbol</label>
+                <div class="flex-1 flex gap-2 items-center" :title="symbol">
                     <input type="checkbox" id="symbol" x-model="types.symbol">
+                    <div class="flex-1 relative h-6">
+                        <label for="symbol" class="absolute inset-0 truncate" x-text="symbol"></label>
+                    </div>
                 </div>
             </div>
         </div>
         <div>
-            <button type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300/50 font-medium rounded-full text-sm px-5 py-2.5 text-center mr-2 mb-2" @click="generatePassword()">Regenerate</button>
-            <button type="button" class="w-36 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-gray-300/50 font-medium rounded-full text-sm px-5 py-2.5 mr-2 mb-2 animate__animated" @click="copyPassword()" x-ref="copyPassword">Copy Password</button>
+            <button type="button" class="text-white bg-gray-800 hover:bg-gray-900 dark:hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-300/50 font-medium rounded-full text-sm px-5 py-2.5 transition-colors duration-300 mr-2 mb-2" @click="generatePassword()">Regenerate</button>
+            <button type="button" class="w-40 text-white bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-2 focus:ring-blue-300/50 font-medium rounded-full text-sm px-5 py-2.5 transition-colors duration-300 mr-2 mb-2 animate__animated" @click="copyPassword()" x-ref="copyPassword">Copy to Clipboard</button>
         </div>
     </div>
 
-    <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/app.js?v=1657995127"></script>
 </body>
 
 </html>
